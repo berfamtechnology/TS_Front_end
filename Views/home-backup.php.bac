@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <base href="<?= $base_url ?>">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="<?= $site_name ?>">
+        <meta name="author" content="">
+        <title><?= ucwords($page_title) ?></title>
+       <link rel="icon" type="image/x-icon" href="admin/assets/img/<?= $favicon ?>"/>
+        <!-- Bootstrap core CSS -->
+        <link href="common/front-end/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="common/front-end/assets/css/blocks.css">
+        <!-- Custom styles for this template -->
+        <link href="common/front-end/assets/css/style.css" rel="stylesheet">
+        <link href="common/front-end/assets/css/custom-style.css" rel="stylesheet" type="text/css">
+        <link href="common/front-end/assets/css/pricing-slider.css" rel="stylesheet" type="text/css">
+        <link href="common/front-end/assets/css/pricing-slider-custom.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+        <style>
+            .faq-btn-group button{
+                background: rgba(179, 179, 179, 1);
+                background-color: rgba(179, 179, 179, 1);
+                font-weight: 500;
+            }
+            .faq-btn-group button.active{
+                background: rgba(0, 36, 54, 1); 
+                background-color: rgba(0, 36, 54, 1);
+                font-weight: 600;
+            }
+        </style>
+      <?= $head_tag_description  ?>
+    </head>
+    <body class="text-secondary myeditablearea">
+      <?= $body_tag_description  ?>
+        <nav class="border-light navbar navbar-dark navbar-expand-lg text-uppercase mceNonEditable" style="height: 90px; background-color: rgba(2, 91, 135, 1); background: rgba(2, 91, 135, 1);"> 
+            <div class="container-fluid"> 
+                <a class="navbar-brand  px-4 size_lg" href="#"><img src="admin/assets/img/<?= $logo ?>" height="50px" width="50px"></a>
+                <a class="ml-n4 ms-n4 navbar-brand size_lg" href="#" style="text-transform: capitalize; font-weight: 700; font-family: Helvetica; font-size: 27px; line-height: 34.5px; color: #fff;"><?= $site_name ?></a> 
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown-21" aria-controls="navbarNavDropdown-21" aria-expanded="false" aria-label="Toggle navigation"> 
+                    <span class="navbar-toggler-icon"></span> 
+                </button>                 
+                <div class="collapse menu-items-parent nav-item navbar-collapse pl-5 pl-md-0 pr-md-0" id="navbarNavDropdown-21">
+                    <ul class="col-10 justify-content-center navbar-nav">
+                        <li class="nav-item active" style="background: transparent; background-color: transparent;"> 
+                            <a class="nav-items nav-link px-lg-3 py-lg-4" href="#">Home <span class="sr-only">(current)</span></a> 
+                        </li>                         
+                        <li class="nav-item"> 
+                            <a class="nav-items nav-link px-lg-3 py-lg-4" href="#">Procedure</a> 
+                        </li>                         
+                        <li class="nav-item"> 
+                            <a class="nav-items nav-link px-lg-3 py-lg-4" href="#">Models</a> 
+                        </li>
+                        <li class="nav-item"> 
+                            <a class="nav-items nav-link px-lg-3 py-lg-4" href="#">FAQ</a>
+                        </li>
+                        <li class="nav-item"> 
+                            <a class="nav-items nav-link px-lg-3 py-lg-4" href="#">Blog</a>
+                        </li>                         
+                        <li class="nav-item"> 
+                            <a class="nav-items nav-link px-lg-3 py-lg-4" href="#">Contact Us</a> 
+                        </li>     
+                          <? if (!$loggedU): ?>                   
+                            <li class="nav-item"> 
+                                <a class="auth nav-items nav-link px-lg-3 py-lg-4" href="login">Login</a> 
+                            </li>                         
+                            <li class="nav-item"> 
+                                <a class="auth nav-items nav-link px-lg-3 py-lg-4" href="register">Register</a> 
+                            </li> 
+                         <? else: ?>                
+                            <li class="nav-item"> 
+                                <a class="auth nav-items nav-link px-lg-3 py-lg-4 text-white" href="login">Dashboard</a> 
+                            </li>  
+                          <? endif ?>   
+                    </ul>                     
+                    <button class="border-0 btn btn-outline-light col-2 ml-md-n5 ml-n3 py-2 text-right" type="button" aria-label="search"> 
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"> 
+                            <path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"></path>                             
+                        </svg>                         
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <section class="ban banner banner-bg text-white">
+            <div class="container p-0 pb-md-0 pl-md-5 pr-md-5 pt-md-0">
+                <div class="align-items-center row">
+                    <div class="background-center-center banner-col-1 col-lg-6 col-md-12 order-2 order-md-1 pb-3 pl-5 pl-md-0 pr-5 pr-md-0 pt-3" style="background-image: url('common/front-end/assets/img/ellipse.png'); background-size: contain; background-repeat: no-repeat;">
+                        <h1 class="banner-heading display-5 font-weight-bold mb-3" style="font-weight: 700;">TRADE WITH<br/>TRUST AND SECURITY.</h1>
+                        <p class="banner-text mb-4 mt-4" style="font-family: helvetica; font-weight: 500; font-size: 18px;">Non. sodales. Ut ullamcorper Nam diam id massa quis convallis. sodales. felis, ex vitae nibh lacus leo. vehicula, tortor.</p>
+                        <a class="banner-btn btn pl-2 pl-md-4 pr-2 pr-md-4" href="#">Take Challenge</a>
+                        <a class="bann banner-btn btn ml-2 pl-4 pl-md-5 pr-4 pr-md-5" href="#">Free Trial</a>
+                        <div class="banner-socials mt-5 row w-100">
+                            <div class="col-2"> 
+                                <a href="#"><img src="common/front-end/assets/img/facebook.png"></a> 
+                            </div>
+                            <div class="col-2"> 
+                                <a href="#"><img src="common/front-end/assets/img/discord.png"></a> 
+                            </div>
+                            <div class="col-2"> 
+                                <a href="#"><img src="common/front-end/assets/img/instagram.png"></a> 
+                            </div>
+                            <div class="col-2"> 
+                                <a href="#"><img src="common/front-end/assets/img/whatsapp.png"></a> 
+                            </div>
+                            <div class="col-2"> 
+                                <a href="#"><img src="common/front-end/assets/img/telegram.png"></a> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner-col-2 col-lg-6 col-md-12 order-1 order-md-2 pb-3 pt-3 d-none d-md-block">
+                        <img src="common/front-end/assets/img/banner.png" width="100%" class="banner-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <img src="common/front-end/assets/img/banner-bottom.png" width="100%" class="banner-svg">
+        <section class="border border-left-0 border-right-0 border-top-0  pt-5 text-center"> 
+            <div class="container "> 
+                <section class=""> 
+                    <div class="container  pb-5"> 
+                        <h2 class="about-what-is h1 text-body" style="font-weight: 700; line-height: 80.49px;">Why Choose Us ?</h2>
+                        <h3 class="h5 m-auto text-dark w-75 why-us-text" style="font-weight: 700;">Our Firm provides Best services in marketplace. With competetion so high, this is the only place where you can trade without being worried</h3> 
+                        <div class="simple-scroll why-scroll" data-simplebar data-simplebar-auto-hide="false">
+                            <div class="mt-4 row why-us flex-md-wrap flex-nowrap"> 
+                                <div class="col-12 col-md-4 pb-3 pt-3"> 
+                                    <div class="h-100 pl-4 pl-lg-4 pl-md-2 pr-4 pr-lg-4 pr-md-2 pt-2 pt-lg-2 pt-md-2 shadow" style="background: rgba(2, 91, 135, 1);"> 
+                                        <img src="common/front-end/assets/img/user%20shield.png" width="100"> 
+                                        <h4 class="font-weight-bold h5 text-left text-white" style="font-weight: 700; line-height: 40.25px;">Account Manager</h4> 
+                                        <p class="h6 text-left text-white">Non. sodales. Ut ullamcorper Nam diam id massa quis convallis. sodales. felis, ex vitae nibh lacus leo. vehicula, tortor.&nbsp;</p>
+                                        <a href="#" class="float-left mb-2 mt-3 text-warning" style="text-decoration: underline; line-height: 32.2px;">Read More</a>
+                                    </div>                                     
+                                </div>
+                                <div class="col-12 col-md-4 pb-3 pt-3">
+                                    <div class="h-100 pl-4 pl-lg-4 pl-md-2 pr-4 pr-lg-4 pr-md-2 pt-2 pt-lg-2 pt-md-2 shadow" style="background: rgba(2, 91, 135, 1);"> 
+                                        <img src="common/front-end/assets/img/make%20a%20profit.png" width="100"> 
+                                        <h4 class="font-weight-bold h5 mt-md-3 text-left text-white why-item" style="font-weight: 700; line-height: 40.25px;">Our Capital, Your Profit</h4> 
+                                        <p class="h6 text-left text-white">Non. sodales. Ut ullamcorper Nam diam id massa quis convallis. sodales. felis, ex vitae nibh lacus leo. vehicula, tortor.&nbsp;</p>
+                                        <a href="#" class="float-left mb-2 mt-3 text-warning" style="text-decoration: underline; line-height: 32.2px;">Read More</a>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4 pb-3 pt-3">
+                                    <div class="h-100 pl-4 pl-lg-4 pl-md-2 pr-4 pr-lg-4 pr-md-2 pt-2 pt-lg-2 pt-md-2 shadow" style="background: rgba(2, 91, 135, 1);"> 
+                                        <img src="common/front-end/assets/img/support%20headphones.png" width="100"> 
+                                        <h4 class="font-weight-bold h5 text-left text-white" style="font-weight: 700; line-height: 40.25px;">Customer Support</h4> 
+                                        <p class="h6 text-left text-white">Non. sodales. Ut ullamcorper Nam diam id massa quis convallis. sodales. felis, ex vitae nibh lacus leo. vehicula, tortor.&nbsp;</p>
+                                        <a href="#" class="float-left mb-2 mt-3 text-warning" style="text-decoration: underline; line-height: 32.2px;">Read More</a>
+                                    </div>
+                                </div>                                 
+                            </div>
+                            <div class="mt-4 row why-us flex-md-wrap flex-nowrap"> 
+                                <div class="col-12 col-md-4 pb-3 pt-3">
+                                    <div class="h-100 pl-4 pl-lg-4 pl-md-2 pr-4 pr-lg-4 pr-md-2 pt-2 pt-lg-2 pt-md-2 shadow" style="background: rgba(2, 91, 135, 1);"> 
+                                        <img src="common/front-end/assets/img/Finance.png" width="100"> 
+                                        <h4 class="font-weight-bold h5 text-left text-white" style="font-weight: 700; line-height: 40.25px;">Free Trade Style</h4> 
+                                        <p class="h6 text-left text-white">Non. sodales. Ut ullamcorper Nam diam id massa quis convallis. sodales. felis, ex vitae nibh lacus leo. vehicula, tortor.&nbsp;</p>
+                                        <a href="#" class="float-left mb-2 mt-3 text-warning" style="text-decoration: underline; line-height: 32.2px;">Read More</a>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4 pb-3 pt-3">
+                                    <div class="h-100 pl-4 pl-lg-4 pl-md-2 pr-4 pr-lg-4 pr-md-2 pt-2 pt-lg-2 pt-md-2 shadow" style="background: rgba(2, 91, 135, 1);"> 
+                                        <img src="common/front-end/assets/img/platform.png" width="150"> 
+                                        <h4 class="font-weight-bold h5 mt-md-4 text-left text-white why-item" style="font-weight: 700; line-height: 40.25px;">No.1 Trading Platform</h4> 
+                                        <p class="h6 text-left text-white">Non. sodales. Ut ullamcorper Nam diam id massa quis convallis. sodales. felis, ex vitae nibh lacus leo. vehicula, tortor.&nbsp;</p>
+                                        <a href="#" class="float-left mb-2 mt-3 text-warning" style="text-decoration: underline; line-height: 32.2px;">Read More</a>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4 pb-3 pt-3">
+                                    <div class="h-100 pl-4 pl-lg-4 pl-md-2 pr-4 pr-lg-4 pr-md-2 pt-2 pt-lg-2 pt-md-2 shadow" style="background: rgba(2, 91, 135, 1);">
+                                        <img src="common/front-end/assets/img/Time%20is%20money.png" width="100"> 
+                                        <h4 class="font-weight-bold h5 text-left text-white" style="font-weight: 700; line-height: 40.25px;">One-time Fee<br></h4> 
+                                        <p class="h6 text-left text-white">Non. sodales. Ut ullamcorper Nam diam id massa quis convallis. sodales. felis, ex vitae nibh lacus leo. vehicula, tortor.&nbsp;</p>
+                                        <a href="#" class="float-left mb-2 mt-3 text-warning" style="text-decoration: underline; line-height: 32.2px;">Read More</a>
+                                    </div>
+                                </div>                                 
+                            </div>                             
+                        </div>                         
+                    </div>                     
+                </section>                 
+            </div>             
+        </section>
+        <section class="border border-left-0 border-right-0 border-top-0  text-center"> 
+            <div class="container  pb-5"> 
+                <section>
+                    <div class="container"> 
+                        <div class="row"> 
+                            <div class="col-md-7">
+                                <h2 class="about-what-is h1 text-body text-left what-heading" style="font-weight: 700; line-height: 80.49px;">What is EssyFunded ?</h2>
+                                <h3 class="h5 text-body text-left w-75 what-body what-is-text" style="font-weight: 400; line-height: 30px;">sollicitudin. quam elit. Donec hendrerit libero, ipsum ullamcorper ex tempor eget placerat nibh sollicitudin. vitae dignissim, diam orci ex lorem. faucibus In</h3>
+                                <h3 class="h5 text-dark text-left w-75" style="font-weight: 400; line-height: 30px;"></h3>&nbsp;
+                                <h3 class="h5 text-body text-left w-75 what-body what-is-text" style="font-weight: 400; line-height: 30px;">scelerisque tincidunt porta convallis. ipsum faucibus non felis, placerat vitae ipsum m scelerisque tincidunt porta convallis. ipsum faucibus non felis, placerat vitae ipsum malesuada non faucibus non odio lobortis, scelerisque at dui. Nullam atscelerisque tincidunt porta convallis. ipsum faucibus non felis, placerat vitae ipsum malesuada non faucibus non odio lobortis, scelerisque at dui. Nullam at,</h3>
+                                <a class="banner-btn btn btn-lg community-socials float-left mt-4 text-white w-25" href="#" style="text-decoration: underline; border-style: none; background: -webkit-linear-gradient(bottom, rgb(2, 91, 135) 23%, rgba(217, 217, 217, 0) 173%);">Read More</a>
+                            </div>                             
+                            <div class="background-center-center col-md-4 new-era pt-5" style="background-image: url('common/front-end/assets/img/about.png'); background-repeat: no-repeat; background-position: center center; background-size: contain;">
+                                <h2 class="font-italic mb-md-5 ml-lg-5 ml-md-4 mr-lg-5 mt-lg-5 mt-md-5  pb-lg-5 pt-5 pt-lg-5 text-white what2-text">a new era<br/> of finance <br/>is arriving</h2>
+                                <a href="#" class="about-btn background-center-center font-italic font-weight-normal h5 p-4 text-body" style="background-image:url('common/front-end/assets/img/about-btn.png');">Get Started</a> 
+                            </div>                             
+                        </div>                         
+                    </div>
+                </section>                 
+            </div>             
+        </section>
+        <section class="border border-left-0 border-right-0 border-top-0  text-center"> 
+            <div class="background-center-center container  pb-5" style="background-repeat: no-repeat; background-position: center center;"> 
+                <img src="common/front-end/assets/img/red%20investment%20growth%20arrow.png" height="200px" class="join-img position-relative" style="position: relative; z-index: -1; left: -405px; top: 24px; transform: rotate(-10deg);">
+                <section style="border-radius: 15px; border: 3px dashed #000000; background-repeat: no-repeat; background-position: left top; margin-top: -100px;" class="background-left-top join-team mb-auto ml-auto mr-auto p-1 pl-md-5 pr-md-5 w-75">
+                    <h2 class="h1 join-heading join-team-heading mb-3 ml-auto mr-auto text-body w-75" style="font-weight: 700;">Join Our Experienced Team Of Traders</h2>
+                    <h3 class="community-section1-text h5 join-heading join-team-text m-auto text-body text-left w-75" style="font-weight: 400;">If you&rsquo;re ready, accept our challenge, or try our trial version, which is free of charge.</h3>
+                    <div class="mb-5 ml-auto mr-auto mt-5 row">
+                        <div class="col-6">
+                            <a class="banner-btn btn btn-lg community-socials community-socials-btn-text float-right join-heading p-3 text-white w-75" href="#" style="text-decoration: underline; border-style: none; background: -webkit-linear-gradient(bottom, rgb(2, 91, 135) 23%, rgba(217, 217, 217, 0) 173%);">Challenge</a> 
+                        </div>
+                        <div class="col-6">
+                            <a class="banner-btn btn btn-lg community-socials community-socials-btn-text float-left join-btn2 join-heading p-3 text-white w-75" href="#" style="text-decoration: underline; border-style: none; background: -webkit-linear-gradient(bottom, rgb(2, 91, 135) 23%, rgba(217, 217, 217, 0) 173%);">Take Trial</a> 
+                        </div>
+                    </div>
+                </section>                 
+            </div>             
+        </section>
+        <section class="border border-left-0 border-right-0 border-top-0  text-center mceNonEditable"  style="background: rgba(2, 91, 135, 1);"> 
+            <div class="container  pb-5 pt-3"> 
+                <section>
+                    <div class="container pl-0 pl-md-auto pr-0 pr-md-auto"> 
+                        <section class="mt-5">
+                            <h2 class="h1 mb-3 ml-auto model-heading mr-auto text-white w-50" style="font-weight: 700;">Our Models &amp; Pricing</h2>
+                            <h3 class="community-section1-text h5 m-auto model-description text-white text-left w-75" style="font-weight: 400;">EssyFunnded offers two models to its traders , so they can enjoy the benefits of trading in every way possible. You can choose model/package according to your trading expertise.</h3>
+                            <?= $products ?>     
+                        </section>                         
+                    </div>
+                </section>                 
+            </div>             
+        </section>                                  
+        <section class="pt-md-5 text-center bg-light model-section mt-5 mt-md-0 mceNonEditable"> 
+            <div class="container  pt-5"> 
+                <div class="ml-lg-5 mr-lg-5  pl-lg-3 pr-lg-3 row"> 
+                    <? foreach($meta as $key=>$value): ?>
+                        <div class="col-12 col-md-6 pb-3 pt-3"> 
+                            <div class="h-100 pb-5 pl-4 pr-4 pt-5 shadow">
+                                <h4 class="community-section1-heading h3 model-head1 text-left" style="color: rgba(2, 91, 135, 1);">Funding Model-<?= $key+1 ?></h4>
+                                <h4 class="font-weight-bold h1 model-head2 model-heading text-body text-left"><?= $value['name'] ?> :</h4> 
+                                <h3 class="community-section1-text h5 mb-5 model-body mt-4 text-body text-left" style="font-weight: 400; line-height: 30px;"><?= $value['description'] ?></h3>
+                                <a href="#" class="float-left h5 mb-5 mt-2 text-warning" style="text-decoration: underline; line-height: 32.2px; font-weight: 600;">Learn More</a>
+                            </div>
+                        </div>
+                    <? endforeach ?>                                            
+                </div>                                         
+            </div>                                     
+        </section>
+        <section class="border border-left-0 border-right-0 border-top-0  text-center"> 
+            <div class="container pb-5 pt-5"> 
+                <section>
+                    <div class="container"> 
+                        <section>
+                            <h2 class="h1 mb-3 ml-auto mr-auto text-body text-left" style="font-weight: 700;">How This Works</h2>
+                            <div class="simple-scroll" data-simplebar data-simplebar-auto-hide="false">
+                                <div class="justify-content-center row flex-nowrap">
+                                    <div class="col-2 col-md-1 works-step-1">
+                                        <h3 style="background: linear-gradient(180deg, #025B87 0%, rgba(2, 91, 135, 0) 140.14%); border-radius: 50%; width: 70px; height: 70px; color: rgba(0, 53, 80, 1); position: relative; top: 29px; right: -12px;" class="h3  p-3">1</h3> 
+                                    </div>
+                                    <div class="col-3 col-md-3 mr-0 pl-0 works-step-2">
+                                        <img src="common/front-end/assets/img/wave-1.png" height="100px" class="works-wave"> 
+                                    </div>
+                                    <div class="col-2 col-md-1 works-step-3">
+                                        <h3 style="background: linear-gradient(180deg, #025B87 0%, rgba(2, 91, 135, 0) 140.14%); border-radius: 50%; width: 70px; height: 70px; color: rgba(0, 53, 80, 1); position: relative; top: 29px; left: -30px;" class="h3  p-3">2</h3> 
+                                    </div>
+                                    <div class="col-3 col-md-3 mr-0 pl-0 works-step-4">
+                                        <img src="common/front-end/assets/img/wave-2.png" height="100px" style="position: relative; left: -39px;" class="works-wave2"> 
+                                    </div>
+                                    <div class="col-2 col-md-1 works-step-5">
+                                        <h3 style="background: linear-gradient(180deg, #025B87 0%, rgba(2, 91, 135, 0) 140.14%); border-radius: 50%; width: 70px; height: 70px; color: rgba(0, 53, 80, 1); position: relative; top: 29px; left: -60px;" class="h3  p-3">3</h3> 
+                                    </div>
+                                </div>
+                                <div class="mt-5 row flex-nowrap">
+                                    <div class="col-12 col-md-4">
+                                        <div style="background-image: url('common/front-end/assets/img/Rectangle%2038.png'); background-repeat: no-repeat; background-position: center center; background-size: cover; border-radius: 10px;" class="background-center-center h-100  pt-5">
+                                            <h2 class="font-weight-bold mb-5 text-white">Choose</h2>
+                                            <h3 class="mb-5 ml-auto mr-auto text-white w-75 works-text">Choose Your Funding Model</h3>
+                                        </div>                                         
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div style="background-repeat: no-repeat; background-position: center center; background-size: cover; border-radius: 10px; background-image: url('common/front-end/assets/img/Rectangle%2039.png');" class="background-center-center h-100  pt-5">
+                                            <h2 class="font-weight-bold mb-5 text-white">Trade</h2>
+                                            <h3 class="mb-5 ml-auto mr-auto text-white w-75 works-text">Be consistent &amp; prove yourself.</h3>
+                                        </div>                                         
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div style="background-repeat: no-repeat; background-position: center center; background-size: cover; border-radius: 10px; background-image: url('common/front-end/assets/img/Rectangle%2040.png');" class="background-center-center h-100  pt-5">
+                                            <h2 class="font-weight-bold mb-5 text-white">Get Funded</h2>
+                                            <h3 class="mb-5 ml-auto mr-auto text-white w-75 works-text">Become a certified funded trader</h3>
+                                        </div>                                         
+                                    </div>
+                                </div>
+                            </div>
+                        </section>                         
+                    </div>
+                </section>                 
+            </div>             
+        </section>
+        <section class="border border-left-0 border-right-0 border-top-0  text-center mceNonEditable">
+            <div class="container mt-3 pb-5 pt-5"> 
+                <section>
+                    <h2 class="h1 mb-3 text-body text-left" style="font-weight: 700;">FAQS.</h2>
+                    <div class="nav btn-group faq-cat-btns float-left mt-4 w-50 faq-btn-group" role="group" aria-label="Basic example">
+                            <? foreach($meta as $key=>$value): ?>
+                                <button type="button"  data-target="#faq-<?= $key ?>" class="btn pb-2 pt-2 text-white w-25 <?= $key==0 ? 'active' : '' ?>"  data-toggle="tab" role="tab" aria-controls="faq-<?= $key+1 ?>" aria-selected="<?= $key==0 ? 'true' : 'false' ?>"><?= ucwords($value['name']) ?></button>
+                            <? endforeach ?>
+                    </div>
+                    <img src="common/front-end/assets/img/Man%20thinking%20about%20an%20important%20question.png" width="250px" style="position: relative; top: -130px; z-index: 1; right: -77px;">
+                </section>
+
+                <div class="tab-content">
+                    <? foreach($meta as $key=>$value): ?>
+                        <div class="tab-pane  fade <?= $key==0 ? 'show active' : '' ?>" id="faq-<?= $key ?>" role="tabpanel" aria-labelledby="faq-<?= $key ?>-tab">
+                            <div class="simple-scroll" style="position: relative; top: -179px;" data-simplebar data-simplebar-auto-hide="false">
+                                <div class="flex-md-wrap flex-nowrap pt-2 row">
+                                    <div class="col-12 col-md-4">
+                                        <div style="background: rgba(2, 91, 135, 0.07); background-color: rgba(2, 91, 135, 0.07);" class="h-100">
+                                            <h4 style="background: rgba(0, 53, 80, 1); background-color: rgba(0, 53, 80, 1);" class="mr-auto pb-2 pl-auto pr-3 pt-2 text-white">Trading Rules</h4>
+                                            <div id="panels1" role="tablist"> 
+                                                <? foreach($value['faq_rules'] as $index=>$item): ?>
+                                                    <div class="card"> 
+                                                        <div class="card-header faq-item mt-0" role="tab">
+                                                            <h5 class="mb-0"> <a class="collapsed h6 text-body" data-toggle="collapse" href="#collapse-r-<?= $key ?>-<?= $index ?>" aria-expanded="false" aria-controls="collapse<?= $index ?>"><?= $item->ques ?><i class='fa-angle-down fas pt-1' style="color: rgba(0, 150, 224, 1);"></i></a></h5> 
+                                                        </div>                                         
+                                                        <div id="collapse-r-<?= $key ?>-<?= $index ?>" class="collapse" role="tabpanel" aria-labelledby="heading<?= $index ?>" data-parent="#panels1"> 
+                                                            <div class="card-body"><?= $item->ans ?></div>                                             
+                                                        </div>                                         
+                                                    </div>  
+                                                <? endforeach ?>                                    
+                                            </div>
+                                            <a href="#" class="d-flex justify-content-center mb-3 mt-3 text-warning" style="text-decoration: underline; line-height: 32.2px;">See More</a>
+                                        </div>                             
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div style="background: rgba(2, 91, 135, 0.07); background-color: rgba(2, 91, 135, 0.07);" class="h-100">
+                                            <h4 style="background: rgba(0, 53, 80, 1); background-color: rgba(0, 53, 80, 1);" class="mr-auto pb-2 pl-auto pr-3 pt-2 text-white">Capital Growth</h4>
+                                            <div id="panels2" role="tablist"> 
+                                                <? foreach($value['faq_growth'] as $index=>$item): ?>
+                                                    <div class="card"> 
+                                                        <div class="card-header faq-item mt-0" role="tab">
+                                                            <h5 class="mb-0"> <a class="collapsed h6 text-body" data-toggle="collapse" href="#collapse-g-<?= $key ?>-<?= $index ?>" aria-expanded="false" aria-controls="collapse<?= $index ?>"><?= $item->ques ?><i class='fa-angle-down fas pt-1' style="color: rgba(0, 150, 224, 1);"></i></a></h5> 
+                                                        </div>                                         
+                                                        <div id="collapse-g-<?= $key ?>-<?= $index ?>" class="collapse" role="tabpanel" aria-labelledby="heading<?= $index ?>" data-parent="#panels2"> 
+                                                            <div class="card-body"><?= $item->ans ?></div>                                             
+                                                        </div>                                         
+                                                    </div>  
+                                                <? endforeach ?>                                       
+                                            </div>
+                                            <a href="#" class="d-flex justify-content-center mb-3 mt-3 text-warning" style="text-decoration: underline; line-height: 32.2px;">See More</a>
+                                        </div>                             
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div style="background: rgba(2, 91, 135, 0.07); background-color: rgba(2, 91, 135, 0.07);" class="h-100">
+                                            <h4 style="background: rgba(0, 53, 80, 1); background-color: rgba(0, 53, 80, 1);" class="mr-auto pb-2 pl-auto pr-3 pt-2 text-white">Withdrawal</h4>
+                                            <div id="panels3" role="tablist"> 
+                                                <? foreach($value['faq_withdrawal'] as $index=>$item): ?>
+                                                    <div class="card"> 
+                                                        <div class="card-header faq-item mt-0" role="tab">
+                                                            <h5 class="mb-0"> <a class="collapsed h6 text-body" data-toggle="collapse" href="#collapse-w-<?= $key ?>-<?= $index ?>" aria-expanded="false" aria-controls="collapse<?= $index ?>"><?= $item->ques ?><i class='fa-angle-down fas pt-1' style="color: rgba(0, 150, 224, 1);"></i></a></h5> 
+                                                        </div>                                         
+                                                        <div id="collapse-w-<?= $key ?>-<?= $index ?>" class="collapse" role="tabpanel" aria-labelledby="heading<?= $index ?>" data-parent="#panels3"> 
+                                                            <div class="card-body"><?= $item->ans ?></div>                                             
+                                                        </div>                                         
+                                                    </div>  
+                                                <? endforeach ?>                                    
+                                            </div>
+                                            <a href="#" class="d-flex justify-content-center mb-3 mt-3 text-warning" style="text-decoration: underline; line-height: 32.2px;">See More</a>
+                                        </div>                             
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <? endforeach ?>
+                </div>
+                <section>
+                    <div class="container " style="margin-top: -128px;"> 
+                        <div class="col-md-9 col-xl-8 ml-auto mr-auto"> 
+                            <form class=""> 
+                                <div class="align-items-center input-group overflow-hidden p-1" style="border: 1px inset rgba(0, 0, 0, 0.1); box-shadow: 10px 10px 4px rgba(2, 91, 135, 0.19);"> 
+                                    <input type="text" class="border-0 form-control pb-2 pl-3 pr-3 pt-2" placeholder="WRITE YOUR QUESTION HERE !" aria-label="Recipient's username" aria-describedby="button-addon2"> 
+                                    <div class="input-group-append ml-1"> 
+                                        <button class="btn h4 mr-3 pb-2 pl-4 pr-4 pt-2 text-white" type="button" id="button-addon2" style="background: rgba(2, 91, 135, 1); background-color: rgba(2, 91, 135, 1);">ASK NOW</button>                                         
+                                    </div>                                     
+                                </div>                                 
+                            </form>                             
+                        </div>                         
+                    </div>                     
+                </section>
+            </div>
+        </section>
+        <section class="border border-left-0 border-right-0 border-top-0  text-center"> 
+            <div class="container fb-discord-container" style="height: 390px;"> 
+                <section class="pb-5">
+                    <h2 class="community-section1-heading h1 mb-3 ml-auto mr-auto pt-5 text-white w-75" style="font-weight: 700;">Join the Global Community for the Traders,                          by the Traders</h2>
+                    <h3 class="community-section1-text h5 mb-5 ml-auto mr-auto mt-4  text-left text-white w-75" style="font-weight: 400;">Get all the exclusive trading resources, economic news updates &amp; fundamentals, listen to best trading podcasts and share what you are up to outside of trading. You can hang around with other like-minded traders and truly build a connection. Come and start a conversation!</h3>
+                    <div class="ml-auto mr-auto mt-5  row">
+                        <div class="col-6">
+                            <a class="banner-btn bg-white btn btn-lg community-socials float-right join-heading p-2 w-50" href="#" style="border-style: none; color: rgba(88, 101, 242, 1); font-weight: normal;"><img src="common/front-end/assets/img/discord.png" height="35px" class="mt-n1"> <span class="community-socials-btn-text h3" style="position: relative; top: 1px;">Join Discord</span></a> 
+                        </div>
+                        <div class="col-6">
+                            <a class="banner-btn bg-white btn btn-lg community-socials float-left join-heading pb-2 pl-3 pr-3 pt-2 w-auto" href="#" style="border-style: none; color: rgba(88, 101, 242, 1); font-weight: normal;"><img src="common/front-end/assets/img/facebook.png" height="35px" class="mt-n1"> <span style="color: rgba(0, 150, 224, 1); position: relative; top: 3px;" class="community-socials-btn-text h3">Join Facebook</span></a> 
+                        </div>
+                    </div>
+                </section>
+                <section style="background: rgba(2, 91, 135, 1); background-color: rgba(2, 91, 135, 1); position: relative; top: -389px; z-index: -1;" class="community-section2">
+                    <img src="common/front-end/assets/img/join-1.png" width="100%" height="390px">
+                </section>                 
+            </div>             
+        </section>
+        <footer class="bg-light pt-5 text-secondary"> 
+            <div class="container"> 
+                <img src="common/front-end/assets/img/Screenshot_1.png" height="150px" style="position: relative; left: 453px; top: -54px;" class="join-bottom-img">
+                <div class="mt-5 mt-md-0 pt-5 pt-md-0 row" style="position: relative; top: -191px;"> 
+                    <div class="col-6 col-md-3 order-1 order-md-1 pb-3 pb-md-5 pl-md-5 pt-3 pt-md-3 py-3 text-center text-md-left">
+                        <img src="common/front-end/assets/img/logo2.png" class="d-block footer-logo mb-2 ml-auto ml-md-5 mr-auto">
+                        <img src="common/front-end/assets/img/logo2b.png" class="d-block footer-logo2 ml-auto ml-md-0 mr-auto mr-md-0">
+                        <a href="#" class="d-inline-block h5 mb-0 mt-3 text-decoration-none" style="color: rgba(0, 53, 80, 1); font-weight: 600;">Contacts</a> 
+                        <div class="mb-4"> 
+                            <a href="#" style="text-decoration: none; color: rgba(0, 53, 80, 1);" class="d-block display-5 ">support@essyfunded.com</a>
+                            <a href="#" style="text-decoration: none; color: rgba(0, 53, 80, 1);" class="d-block display-5">Live Chat</a> 
+                        </div>
+                        <a href="#" class="d-inline-block h5 mb-0 text-decoration-none" style="color: rgba(0, 53, 80, 1); font-weight: 600;">About Us</a>
+                        <div class="mb-4"> 
+                            <a href="#" style="text-decoration: none; color: rgba(0, 53, 80, 1);" class="d-block display-5 ">Models</a>
+                            <a href="#" style="text-decoration: none; color: rgba(0, 53, 80, 1);" class="d-block display-5">Our Customers</a>
+                            <a href="#" style="text-decoration: none; color: rgba(0, 53, 80, 1);" class="d-block display-5">Cares</a>
+                            <a href="#" style="text-decoration: none; color: rgba(0, 53, 80, 1);" class="d-block display-5">Affiliate Programs</a>
+                            <a href="#" style="text-decoration: none; color: rgba(0, 53, 80, 1);" class="d-block display-5">Blogs</a> 
+                        </div>
+                    </div>                     
+                    <div class="col-12 col-md-6 mt-md-0 mt-n4 order-3 order-md-2 pb-4 pb-md-3 pt-3 py-3"> 
+                        <a href="#" class="h5 subscribe-heading text-center text-decoration-none" style="color: rgba(0, 53, 80, 1); font-weight: 600; display: block; margin-top: 154px;">Stay Updated</a>
+                        <p class="display-5 mb-3 ml-auto mr-auto mt-1 text-center w-50" style="color: rgba(0, 53, 80, 1);">Join to get all the latest Updates        about trading industry.</p>
+                        <form class="join-heading ml-auto mr-auto w-75"> 
+                            <div class="align-items-center input-group overflow-hidden pb-1 pt-1" style="border: 1px inset rgba(0, 0, 0, 0.1);"> 
+                                <input type="text" class="border-0 form-control form-control-sm pb-2 pl-3 pr-3 pt-2" placeholder="Enter your email" aria-label="Recipient's username" aria-describedby="button-addon2"> 
+                                <div class="input-group-append ml-1"> 
+                                    <button class="btn btn-sm display-5 mr-1 pb-2 pl-4 pr-4 pt-2 text-white" type="button" id="button-addon2" style="background: rgba(2, 91, 135, 1); background-color: rgba(2, 91, 135, 1);">Subscribe</button>                                     
+                                </div>                                 
+                            </div>                             
+                        </form>                         
+                    </div>
+                    <div class="col-6 col-md-3  order-2 order-md-3 pb-md-3 pl-auto pr-auto pr-md-5 pt-5 pt-md-3 py-3 text-center text-md-left">
+                        <a href="#" class="d-inline-block h5 mb-0 mt-3 text-decoration-none" style="color: rgba(0, 53, 80, 1); font-weight: 600;">Products</a> 
+                        <div class="mb-4"> 
+                            <a href="#" style="text-decoration: none; color: rgba(0, 53, 80, 1);" class="d-block display-5 ">Funding</a>
+                            <a href="#" style="text-decoration: none; color: rgba(0, 53, 80, 1);" class="d-block display-5">Tools</a>
+                            <a href="#" style="text-decoration: none; color: rgba(0, 53, 80, 1);" class="d-block display-5">Market place</a>
+                            <a href="#" style="text-decoration: none; color: rgba(0, 53, 80, 1);" class="d-block display-5">Crypto</a>
+                            <a href="#" style="text-decoration: none; color: rgba(0, 53, 80, 1);" class="d-block display-5">Liquidity</a> 
+                        </div>
+                        <a href="#" class="d-inline-block h5 mb-0 text-decoration-none" style="color: rgba(0, 53, 80, 1); font-weight: 600;">Learn</a>
+                        <div class="mb-4"> 
+                            <a href="#" style="text-decoration: none; color: rgba(0, 53, 80, 1);" class="d-block display-5 ">Flexy</a>
+                            <a href="#" style="text-decoration: none; color: rgba(0, 53, 80, 1);" class="d-block display-5">Evaluation</a> 
+                        </div>
+                    </div>                     
+                </div>                 
+                <div class=" pb-3 pt-3 text-center" style="margin-top: -206px;"> 
+                    <p class="disclaimer mb-2 ml-auto mr-auto text-left w-75" style="font-size: 10px;">The information on the Website is provided solely for analysis purposes only and should not be construed as financial, investment, tax, or other advice. Nothing on the Website or in our Services represents a solicitation, advice, endorsement, or offer to purchase or sell stocks or other financial instruments by EssyFunded, its agents, employees, contractors, or any connected entities. You are solely responsible for assessing the benefits and risks associated with the use of any information or other content on the Website. All investments include substantial risk, and an individual&apos;s investment decisions are solely his/her obligation. All information on the Website is provided &ldquo;as is&rdquo;, with no guarantee of completeness, accuracy, timeliness, or of the results obtained from the use of this information, and without warranty of any kind, express or implied.EssyFunded, or its partners, employees, or agents, shall in no way be responsible to you or anyone else for any decision made or action taken in reliance on the information on the Website, or for any consequential, special, or similar damages, even if warned of the potential of such damages. Purchases should not be regarded as deposits. All program charges are utilized for working expenses including, however not restricted to, staff, innovation, and other business-related costs.</p>
+                    <p class="footer-signature mb-0" style="color: rgba(46, 46, 46, 1);">2022 &copy; EssyFunded Ltd. Made for the traders, by the traders</p> 
+                </div>                 
+            </div>             
+        </footer>
+        <script src="common/front-end/assets/js/jquery.min.js"></script>
+        <script src="common/front-end/assets/js/popper.js"></script>
+        <script src="common/front-end/bootstrap/js/bootstrap.min.js"></script>
+        <script src="common/front-end/assets/js/pricing-slider.js"></script>
+        <script src="https://use.fontawesome.com/releases/v5.13.1/js/all.js"></script>
+        <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+        <?= $close_body_tag_description  ?>
+        <? if($loggedA && isset($editor))echo $editor ?>
+    </body>
+</html>
